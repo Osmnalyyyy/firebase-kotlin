@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "886220207531",
+    "project_id": "dusuncepaylas-dda76",
+    "storage_bucket": "dusuncepaylas-dda76.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886220207531:android:18667cae8082842e4c8eee",
+        "android_client_info": {
+          "package_name": "com.example.dusuncepaylas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClFMcJatNehpYJVDY8gaJLvamJho7rS6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
