@@ -8,9 +8,13 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.node.ViewAdapter
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dusuncepaylas.R
+import com.example.dusuncepaylas.adapter.DusunceAdapter
+import com.example.dusuncepaylas.model.Paylasim
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ListenerRegistration
@@ -22,6 +26,8 @@ import java.util.Locale
 class DusunceActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     val db = Firebase.firestore
+    private lateinit var recylerViewAdapter: DusunceAdapter
+    var paylasimListesi = ArrayList<Paylasim>()
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val menuInflater = getMenuInflater()
@@ -57,6 +63,17 @@ class DusunceActivity : AppCompatActivity() {
 
         auth = Firebase.auth
 
+        firebaseVerileriAl()
+
+        var layoutManager = LinearLayoutManager(this)
+       // recycleView.layoutManager=layoutManager
+
+        recylerViewAdapter=DusunceAdapter(paylasimListesi)
+     //   recylerView.adapter=recylerViewAdapter
+
+    }
+
+    fun firebaseVerileriAl() {
         // Listener'ı daha sonra kaldırmak için değişkene atayalım
         var paylasimListener: ListenerRegistration? = null
 
@@ -75,6 +92,8 @@ class DusunceActivity : AppCompatActivity() {
                     return@addSnapshotListener
                 }
 
+                paylasimListesi.clear()
+
                 // Verileri işleme
                 for (document in documents) {
                     // Güvenli veri çekme
@@ -82,9 +101,10 @@ class DusunceActivity : AppCompatActivity() {
                         document.getString("kullanici_adi")?.takeIf { it.isNotEmpty() }
                             ?: "Bilinmiyor"
                     val paylasilanYorum = document.getString("paylasilan_yorum") ?: "Yorum yok"
-                    val tarih =
-                        document.getDate("tarih")?.toString() ?: "Tarih yok" // Tarih için Date tipi
 
+                    val gorselUrl = document.getString("gorselUrl") ?: "Görsel yok"
+
+                    var indirilernPaylasim = Paylasim(kullaniciAdi, paylasilanYorum, gorselUrl)
                     // Verileri kullanma
                     Log.d(
                         "Paylasim", """
@@ -99,6 +119,8 @@ class DusunceActivity : AppCompatActivity() {
             """.trimIndent()
                     )
                 }
+
+                recylerViewAdapter.notifyDataSetChanged()
             }
     }
 
