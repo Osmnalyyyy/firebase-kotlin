@@ -13,7 +13,7 @@
         android:theme="@style/Theme.DusuncePaylas"
         tools:targetApi="31">
         <activity
-            android:name=".DusunceActivity"
+            android:name=".view.DusunceActivity"
             android:exported="false"
             android:label="@string/title_activity_dusunce"
             android:theme="@style/Theme.DusuncePaylas">
@@ -24,14 +24,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PaylasimActivity"
+            android:name=".view.PaylasimActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity2"
             android:exported="false"
             android:theme="@style/Theme.DusuncePaylas" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.DusuncePaylas">

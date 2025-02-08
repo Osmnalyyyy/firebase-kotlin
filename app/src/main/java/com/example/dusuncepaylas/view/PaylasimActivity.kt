@@ -1,4 +1,4 @@
-package com.example.dusuncepaylas
+package com.example.dusuncepaylas.view
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.dusuncepaylas.databinding.ActivityMainBinding
+import com.example.dusuncepaylas.R
 import com.example.dusuncepaylas.databinding.ActivityPaylasimBinding
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
