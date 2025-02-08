@@ -78,6 +78,8 @@ class DusunceActivity : AppCompatActivity() {
         var paylasimListener: ListenerRegistration? = null
 
         paylasimListener = db.collection("Paylasimlar")
+          //  .whereEqualTo("kullaniciAdi",auth.currentUser?.displayName.toString())// burada filtreleme yapabiliz
+            .orderBy("kullaniciAdi") // isme göre sırala
             .addSnapshotListener { querySnapshot, firestoreError ->
                 // Hata kontrolü
                 if (firestoreError != null) {

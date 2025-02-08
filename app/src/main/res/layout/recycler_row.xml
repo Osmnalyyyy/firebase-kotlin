@@ -24,4 +24,13 @@
         android:id="@+id/recycler_row_paylasim_mesaji">
 
     </TextView>
+    
+    <ImageView
+        android:id="@+id/recycler_row_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:visibility="gone"
+        android:layout_margin="5dp">
+
+    </ImageView>
 </LinearLayout>

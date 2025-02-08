@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dusuncepaylas.R
 import com.example.dusuncepaylas.model.Paylasim
+import com.squareup.picasso.Picasso
 
 class DusunceAdapter(val paylasimListesi: ArrayList<Paylasim>) :
     RecyclerView.Adapter<DusunceAdapter.PaylasimHolder>() {
@@ -30,6 +31,10 @@ class DusunceAdapter(val paylasimListesi: ArrayList<Paylasim>) :
         //  holder.itemView.recycler_row_kullanici_adi.text=paylasimListesi[position].kullaniciAdi
         //  holder.itemView.recycler_row_paylasim_mesaji.text=paylasimListesi[position].kullaniciYorum
 
+        if (paylasimListesi[position].gorselUrl != null) {
+         //   holder.itemView.recycler_row_imageview.visibility=View.VISIBLE
+          //  Picasso.get().load(paylasimListesi[position].gorselUrl).into(holder.itemView.recycler_row_imageview)   resmi burda gösterdik
+        }
     }
 
 }
